@@ -23,8 +23,8 @@ StudySetCreator is a Python tool that generates study sets (flashcards) from PDF
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/studyset-creator.git
-   cd studyset-creator
+   git clone https://github.com/jaylann/StudySetCreator.git
+   cd StudySetCreator
    ```
 
 2. **Create a Virtual Environment** (optional but recommended)
