@@ -36,7 +36,8 @@ class StudySetCreator:
             output_csv: str,
             chunk_size: int = 10,
             use_batch: bool = False,
-            language: str = "english"
+            language: str = "english",
+            no_resume: bool = False
     ):
         self.pdf_processor = PDFProcessor()
         self.output_csv = output_csv
@@ -45,6 +46,7 @@ class StudySetCreator:
         self.use_batch = use_batch
         self.progress_file = 'progress.json'
         self.language = language
+        self.no_resume = no_resume
         self.prompt_service = PromptService()
         self.schema_service = SchemaService()
 
@@ -139,6 +141,9 @@ class StudySetCreator:
         Returns:
             Progress: The loaded progress.
         """
+        if self.no_resume:
+            self._clear_progress()
+            return Progress()
         if os.path.exists(self.progress_file):
             with open(self.progress_file, 'r') as f:
                 return Progress.model_validate_json(f.read())
