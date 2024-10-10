@@ -1,0 +1,38 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "study_cards",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "study_cards": {
+          "type": "array",
+          "description": "A collection of study cards, each containing a question and an answer.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string",
+                "description": "The question presented on the study card."
+              },
+              "answer": {
+                "type": "string",
+                "description": "The answer corresponding to the question on the study card."
+              }
+            },
+            "required": [
+              "question",
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "study_cards"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
