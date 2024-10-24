@@ -1,5 +1,5 @@
 colorlog==6.8.2
-fitz==0.0.1.dev2
+PyMuPDF==1.24.11
 openai==1.52.2
 pydantic==2.9.2
 python-dotenv==1.0.1
