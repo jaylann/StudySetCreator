@@ -69,17 +69,16 @@ The application requires an OpenAI API key to function. This key should be store
 Run the `main.py` script with the required arguments to generate a study set from a PDF file.
 
 ```bash
-python main.py [options] pdf_path
+python main.py [options]
 ```
-
-### Positional Arguments
-
-- `pdf_path`: Path to the PDF file you want to process.
 
 ### Optional Arguments
 
 - `--model`: OpenAI model to use (default: `gpt-4o-mini`).
 - `--output`: Output CSV file name (default: `study_set.csv`).
+- `--input`: Input PDF file to process (required).
+- `--in_dir`: Input directory containing PDF files to process.
+- `--out_dir`: Output directory to save the study sets.
 - `--chunk_size`: Number of pages to process at once (default: `10`).
 - `--use_batch`: Use OpenAI Batch API for processing.
 - `--text_only`: Extract text only, ignore images.
@@ -93,7 +92,7 @@ python main.py [options] pdf_path
    Generate a study set from `document.pdf` using the default settings.
 
    ```bash
-   python main.py document.pdf
+   python main.py --input document.pdf --output document.csv
    ```
 
 2. **Specify Output File and Model**
@@ -101,7 +100,7 @@ python main.py [options] pdf_path
    Generate a study set from `lecture_notes.pdf`, using the `gpt-4o` model, and save the output to `flashcards.csv`.
 
    ```bash
-   python main.py --model gpt-4o --output flashcards.csv lecture_notes.pdf
+   python main.py --model gpt-4o --output flashcards.csv --input lecture_notes.pdf
    ```
 
 3. **Process Only Text Content**
@@ -109,15 +108,15 @@ python main.py [options] pdf_path
    Generate a study set ignoring images in the PDF.
 
    ```bash
-   python main.py --text_only textbook.pdf
+   python main.py --text_only --input textbook.pdf --output textbook.csv
    ```
 
 4. **Use Batch Processing**
 
-   Use OpenAI's Batch API to process the PDF (suitable for large PDFs).
+   Use OpenAI's Batch API to process the PDF (suitable for large PDFs. Reduces cost by ~50% but may take longer).
 
    ```bash
-   python main.py --use_batch large_document.pdf
+   python main.py --use_batch --input large_document.pdf --output large_document.csv
    ```
 
 5. **Specify Language**
@@ -125,7 +124,7 @@ python main.py [options] pdf_path
    Generate a study set in Spanish.
 
    ```bash
-   python main.py --language spanish notas_de_clase.pdf
+   python main.py --language spanish --input notas_de_clase.pdf --output notas_de_clase.csv
    ```
 
 ## Customization
