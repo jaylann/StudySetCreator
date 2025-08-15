@@ -180,6 +180,9 @@ This project is licensed under the **MIT License**.
 
 ---
 
+[Read more about this on my blog](https://www.lanfermann.dev/projects/study-set-creator)
+
+---
 <p align="center">
   Made with ❤️ by <a href="https://lanfermann.dev">Justin Lanfermann</a>
 </p>
